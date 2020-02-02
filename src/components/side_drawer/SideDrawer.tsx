@@ -9,10 +9,8 @@ interface sideDrawerShowProps {
 function SideDrawer(props: sideDrawerShowProps) {
   let drawerClasses = "side_drawer";
   if (props.show) {
-    console.log("side drawer open");
     drawerClasses = "side_drawer open";
   }
-  console.log("side drawer");
   return (
     <nav className={drawerClasses}>
       <ul>

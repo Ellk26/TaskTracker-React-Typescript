@@ -8,11 +8,21 @@
   margin-left: auto;
   margin-right: auto;
   width: 37rem;
+  height: 30;
   grid-template-columns: 200px 1fr;
   gap: 20px;
   padding: 20px;
   box-shadow: 4px 3px #ccc;
   border-radius: 5%;
+}
+
+.form_box {
+  transform: translateY(-30%);
+  transition: transform 1s ease-out;
+}
+
+.form_box.open {
+  transform: translateY(0);
 }
 
 label {
@@ -25,19 +35,10 @@ input {
 
 textarea {
   width: 350px;
-  height: 200px;
+  height: 100px;
   resize: none;
 }
 
 select {
   width: 350px;
-}
-
-.form_class {
-  transform: translateY(-100%);
-  transition: transform 0.3s ease-out;
-}
-
-.form_class.show {
-  transform: translateY(0);
 }
