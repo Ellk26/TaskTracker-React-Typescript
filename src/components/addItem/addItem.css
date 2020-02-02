@@ -1,0 +1,13 @@
+.add_button_item {
+  align-self: center;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: #424249;
+  color: white;
+}
+
+.add_button_item:hover {
+  color: #f76212;
+}

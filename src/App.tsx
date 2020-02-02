@@ -1,26 +1,55 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import Navbar from "./components/navbar/Navbar";
+import SideDrawer from "./components/side_drawer/SideDrawer";
+import Backdrop from "./components/backdrop/Backdrop";
+import TableView from "./components/tableView/TableView";
+import UserPage from "./components/userPage/UserPage";
+import Dashboard from "./components/dashboard/Dashboard";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export interface AppProps {}
+
+export interface AppState {
+  sideDrawerOpen: boolean;
+}
+
+class App extends React.Component<AppProps, AppState> {
+  state = {
+    sideDrawerOpen: false
+  };
+
+  drawerToggleClickHandler = () => {
+    this.setState(prevState => {
+      return { sideDrawerOpen: !prevState.sideDrawerOpen };
+    });
+  };
+
+  backdropClickHandler = () => {
+    this.setState({ sideDrawerOpen: false });
+  };
+
+  render() {
+    let backDrop;
+    if (this.state.sideDrawerOpen) {
+      backDrop = <Backdrop click={this.backdropClickHandler} />;
+    }
+    return (
+      <Router>
+        <div className="App">
+          <Navbar drawerClickHandler={this.drawerToggleClickHandler} />
+          <SideDrawer show={this.state.sideDrawerOpen} />
+          {backDrop}
+          <Switch>
+            <Route path="/" exact component={Dashboard} />
+            <Route path="/TableView" exact component={TableView} />
+            <Route path="/UserPage" exact component={UserPage} />
+            <Route path="/Dashboard" exact component={Dashboard} />
+          </Switch>
+        </div>
+      </Router>
+    );
+  }
 }
 
 export default App;
