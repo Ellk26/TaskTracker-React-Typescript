@@ -18,6 +18,7 @@ function TableView() {
           <th>Task Number</th>
           <th>Category</th>
           <th>Comments</th>
+          <th>delete</th>
         </tr>
       </table>
       <Form />
