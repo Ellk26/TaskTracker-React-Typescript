@@ -10,6 +10,7 @@ const Form = (props: formShowProps) => {
   if (props.show) {
     formClass = "form_box open";
   }
+  console.log(formClass);
 
   return (
     <div className={formClass}>

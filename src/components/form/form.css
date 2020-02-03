@@ -17,12 +17,12 @@
 }
 
 .form_box {
-  transform: translateY(-30%);
-  transition: transform 1s ease-out;
+  transform: translateX(-150%);
+  transition: transform 1s ease-in;
 }
 
 .form_box.open {
-  transform: translateY(0);
+  transform: translateX(0);
 }
 
 label {

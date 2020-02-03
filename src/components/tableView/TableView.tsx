@@ -19,10 +19,6 @@ class TableView extends React.Component<{}, TableState> {
   };
 
   render() {
-    let formDisplay;
-    if (this.state.formShow) {
-      formDisplay = <Form show={this.state.formShow} />;
-    }
     return (
       <div>
         <table className="table">
@@ -40,7 +36,7 @@ class TableView extends React.Component<{}, TableState> {
             <th>delete</th>
           </tr>
         </table>
-        {formDisplay}
+        <Form show={this.state.formShow} />
         <AddItem formClickHandler={this.formShowClickHandler} />
       </div>
     );
